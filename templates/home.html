@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+
+
+    <!--<div class="main-container">
+        <div class="button-container">
+            <button class="index-button" onclick="window.location.href='/index'">Put a CSV File</button>
+
+        </div>
+    </div>-->
+
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <label for="file">Select files <br> .csv or .xlsx </label>
+        <input type="file" name="file" id="file" multiple accept=".csv" onchange="handleFileSelection()">
+        <div id="file-names"></div>
+
+        <label for="text">Enter a column name:</label>
+        <input type="text" name="column_name" id="text" required>
+
+        <input type="submit" value="Submit" id="upload-btn" disabled>
+    </form>
+</body>
+</html>
